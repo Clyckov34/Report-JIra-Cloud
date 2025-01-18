@@ -97,11 +97,9 @@ func checkConfig(c *config.Config) error {
 
 // checkFormatDate проверка формат даты в виде: ГГГГ-ММ-ДД
 func checkFormatDate(date string) error {
-	const formatDate = "2006-01-02"
-
-	_, err := time.Parse(formatDate, date)
+	_, err := time.Parse(config.FormatDate, date)
 	if err != nil {
-		return errors.New("неверный формат даты. Образец: " + formatDate + " 'ГГГГ-ММ-ДД'")
+		return errors.New("неверный формат даты. Образец: " + config.FormatDate + " 'ГГГГ-ММ-ДД'")
 	}
 
 	return nil
