@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 	"report/internal"
 	"report/pkg/config"
 )
@@ -13,7 +14,11 @@ func init() {
 }
 
 func main() {
-	if err := internal.GetReport(params); err != nil {
-		log.Fatalln(err)
+	if len(os.Args) <= 1 {
+		log.Fatalln("укажите параметры (Флаги). Подробно: --help")
+	} else {
+		if err := internal.GetReport(params); err != nil {
+			log.Fatalln(err)
+		}
 	}
 }

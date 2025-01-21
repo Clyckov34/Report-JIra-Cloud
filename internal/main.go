@@ -77,7 +77,7 @@ func GetReport(c *config.Config) error {
 		return err
 	}
 
-	statusApp(fmt.Sprintf("Этап 4/4. Готово\n\nКол-во задач: %d\nКол-во сотрудников: %d\nФайл: %v\nВремя выполнения скрипта %.2fs\n", len(issue.List), len(groupUser.List), fileName, time.Since(timerStart).Seconds()))
+	statusApp(fmt.Sprintf("Этап 4/4. Готово\n\nКол-во задач: %d шт.\nКол-во сотрудников: %d\nФайл: %v\nВремя выполнения скрипта %.2fs\n", len(issue.List), len(groupUser.List), fileName, time.Since(timerStart).Seconds()))
 
 	return nil
 }
