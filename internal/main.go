@@ -3,6 +3,7 @@ package internal
 import (
 	"errors"
 	"fmt"
+	"os"
 	"report/internal/models/excel"
 	jr "report/internal/models/jira"
 	"report/pkg/config"
@@ -84,6 +85,10 @@ func GetReport(c *config.Config) error {
 
 // checkConfig проверка конфига (Параметры)
 func checkConfig(c *config.Config) error {
+	if len(os.Args) <= 1 {
+		return errors.New("укажите параметры (Флаги). Подробно: --help")
+	}
+
 	if err := checkFormatDate(c.DateStart); err != nil {
 		return err
 	}
