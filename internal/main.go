@@ -39,15 +39,15 @@ func GetReport(c *config.Config) error {
 		Group:     c.Group,
 	}
 
-	// Получить список задач
-	go client.GetTasks(jql.UpdateString(), issueChan)
+	
+	go client.GetTasks(jql.UpdateString(), issueChan) 	// Получить список задач
+	go client.GetGroupUsers(c.Group, groupUserChan) 	// Получить список сотрудников состоящей в группе
+
 	issue := <-issueChan
 	if issue.Err != nil {
 		return issue.Err
 	}
 
-	// Получить список сотрудников состоящей в группе
-	go client.GetGroupUsers(c.Group, groupUserChan)
 	groupUser := <-groupUserChan
 	if groupUser.Err != nil {
 		return groupUser.Err
