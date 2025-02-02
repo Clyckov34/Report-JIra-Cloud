@@ -74,9 +74,9 @@ func (c *Client) GetTasks(jql string, issueChan chan IssueChan) {
 func (c *Client) GetGroupUsers(nameGroup string, groupUserChan chan GroupUsersChan) {
 	defer close(groupUserChan)
 
-	group := make([]string, 0)
-
 	list, _, err := c.Client.Group.Get(nameGroup)
+	group := make([]string, 0, len(list))
+
 	if err != nil {
 		groupUserChan <- GroupUsersChan{nil, errors.New("группа не найдена")}
 	}
