@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"report/internal"
-	"report/pkg/config"
+	"report/internal/config"
 )
 
 var params = &config.Config{}

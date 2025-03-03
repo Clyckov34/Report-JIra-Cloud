@@ -2,7 +2,7 @@ package jira
 
 import (
 	"errors"
-	"report/pkg/config"
+	"report/internal/config"
 
 	"github.com/andygrunwald/go-jira"
 )

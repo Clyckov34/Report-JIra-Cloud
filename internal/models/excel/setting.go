@@ -1,7 +1,7 @@
 package excel
 
 import (
-	"report/pkg/config"
+	"report/internal/config"
 	"strings"
 	"time"
 )
